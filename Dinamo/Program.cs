@@ -6,8 +6,15 @@ using System.Windows.Forms;
 
 namespace Dinamo
 {
+    public struct User
+    {
+        public string login;
+        public string password;
+    }
     static class Program
     {
+        public static User users = new User();
+        public static DinamoEntities3 dinamoDB = new DinamoEntities3();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +23,7 @@ namespace Dinamo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormAuthorization());
         }
     }
 }

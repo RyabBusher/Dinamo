@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DinamoModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClientSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="nvarchar(max)" />
+          <Property Name="ClientAdress" Type="nvarchar(max)" />
+          <Property Name="ClientPhone" Type="nvarchar(max)" />
+          <Property Name="ClientEmail" Type="nvarchar(max)" />
+          <Property Name="ClientRequisits" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PersonalSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonalName" Type="nvarchar(max)" />
+          <Property Name="PersonalPhone" Type="nvarchar(max)" />
+          <Property Name="PersonalEmail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar(max)" />
+          <Property Name="ProductPrice" Type="float" />
+          <Property Name="Unit" Type="nvarchar(max)" />
+          <Property Name="Remains" Type="int" />
+          <Property Name="IDSupplier" Type="int" />
+        </EntityType>
+        <EntityType Name="SupplierSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar(max)" />
+          <Property Name="SupplierAdress" Type="nvarchar(max)" />
+          <Property Name="SupplierPhone" Type="nvarchar(max)" />
+          <Property Name="SupplierEmail" Type="nvarchar(max)" />
+          <Property Name="SupplierRequisites" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ProductSet_SupplierSet">
+          <End Role="SupplierSet" Type="Self.SupplierSet" Multiplicity="0..1" />
+          <End Role="ProductSet" Type="Self.ProductSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplierSet">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSet">
+              <PropertyRef Name="IDSupplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DinamoModelContainer">
+          <EntitySet Name="ClientSet" EntityType="Self.ClientSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonalSet" EntityType="Self.PersonalSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductSet" EntityType="Self.ProductSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierSet" EntityType="Self.SupplierSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ProductSet_SupplierSet" Association="Self.FK_ProductSet_SupplierSet">
+            <End Role="SupplierSet" EntitySet="SupplierSet" />
+            <End Role="ProductSet" EntitySet="ProductSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DinamoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClientSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClientAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClientPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClientEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClientRequisits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PersonalSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPrice" Type="Double" />
+          <Property Name="Unit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remains" Type="Int32" />
+          <Property Name="IDSupplier" Type="Int32" />
+          <NavigationProperty Name="SupplierSet" Relationship="Self.FK_ProductSet_SupplierSet" FromRole="ProductSet" ToRole="SupplierSet" />
+        </EntityType>
+        <EntityType Name="SupplierSet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierRequisites" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductSet" Relationship="Self.FK_ProductSet_SupplierSet" FromRole="SupplierSet" ToRole="ProductSet" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ProductSet_SupplierSet">
+          <End Role="SupplierSet" Type="Self.SupplierSet" Multiplicity="0..1" />
+          <End Role="ProductSet" Type="Self.ProductSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplierSet">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSet">
+              <PropertyRef Name="IDSupplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DinamoEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClientSet" EntityType="Self.ClientSet" />
+          <EntitySet Name="PersonalSet" EntityType="Self.PersonalSet" />
+          <EntitySet Name="ProductSet" EntityType="Self.ProductSet" />
+          <EntitySet Name="SupplierSet" EntityType="Self.SupplierSet" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_ProductSet_SupplierSet" Association="Self.FK_ProductSet_SupplierSet">
+            <End Role="SupplierSet" EntitySet="SupplierSet" />
+            <End Role="ProductSet" EntitySet="ProductSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DinamoModelContainer" CdmEntityContainer="DinamoEntities3">
+          <EntitySetMapping Name="ClientSet">
+            <EntityTypeMapping TypeName="DinamoModel.ClientSet">
+              <MappingFragment StoreEntitySet="ClientSet">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ClientAdress" ColumnName="ClientAdress" />
+                <ScalarProperty Name="ClientPhone" ColumnName="ClientPhone" />
+                <ScalarProperty Name="ClientEmail" ColumnName="ClientEmail" />
+                <ScalarProperty Name="ClientRequisits" ColumnName="ClientRequisits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonalSet">
+            <EntityTypeMapping TypeName="DinamoModel.PersonalSet">
+              <MappingFragment StoreEntitySet="PersonalSet">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonalName" ColumnName="PersonalName" />
+                <ScalarProperty Name="PersonalPhone" ColumnName="PersonalPhone" />
+                <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductSet">
+            <EntityTypeMapping TypeName="DinamoModel.ProductSet">
+              <MappingFragment StoreEntitySet="ProductSet">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Remains" ColumnName="Remains" />
+                <ScalarProperty Name="IDSupplier" ColumnName="IDSupplier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierSet">
+            <EntityTypeMapping TypeName="DinamoModel.SupplierSet">
+              <MappingFragment StoreEntitySet="SupplierSet">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierAdress" ColumnName="SupplierAdress" />
+                <ScalarProperty Name="SupplierPhone" ColumnName="SupplierPhone" />
+                <ScalarProperty Name="SupplierEmail" ColumnName="SupplierEmail" />
+                <ScalarProperty Name="SupplierRequisites" ColumnName="SupplierRequisites" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DinamoModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
