@@ -115,5 +115,10 @@ namespace Dinamo
                 MessageBox.Show("невозможно удалить, эта запись используется", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void FormProducts_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

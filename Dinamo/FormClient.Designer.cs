@@ -107,26 +107,32 @@
             // columnHeaderID
             // 
             this.columnHeaderID.Text = "ID";
+            this.columnHeaderID.Width = 30;
             // 
             // columnHeaderName
             // 
             this.columnHeaderName.Text = "ФИО";
+            this.columnHeaderName.Width = 151;
             // 
             // columnHeaderAdress
             // 
             this.columnHeaderAdress.Text = "Адрес";
+            this.columnHeaderAdress.Width = 63;
             // 
             // columnHeaderPhone
             // 
             this.columnHeaderPhone.Text = "Телефон";
+            this.columnHeaderPhone.Width = 78;
             // 
             // columnHeaderEmail
             // 
             this.columnHeaderEmail.Text = "Почта";
+            this.columnHeaderEmail.Width = 102;
             // 
             // columnHeaderRequisits
             // 
             this.columnHeaderRequisits.Text = "Реквизиты";
+            this.columnHeaderRequisits.Width = 97;
             // 
             // textBoxName
             // 

@@ -186,7 +186,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listViewPersonal);
             this.Name = "FormPersonal";
-            this.Text = "FormPersonal";
+            this.Text = "Персонал";
             this.Load += new System.EventHandler(this.FormPersonal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

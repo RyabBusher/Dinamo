@@ -245,7 +245,8 @@
             this.Controls.Add(this.textBoxAdress);
             this.Controls.Add(this.textBoxName);
             this.Name = "FormSupplier";
-            this.Text = "FormSupplier";
+            this.Text = "Поставщики";
+            this.Load += new System.EventHandler(this.FormSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

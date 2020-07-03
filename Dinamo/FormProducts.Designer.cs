@@ -258,7 +258,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listViewProducts);
             this.Name = "FormProducts";
-            this.Text = "FormProducts";
+            this.Text = "Товары";
+            this.Load += new System.EventHandler(this.FormProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

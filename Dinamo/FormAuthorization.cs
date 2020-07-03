@@ -50,5 +50,10 @@ namespace Dinamo
                 }
             }
         }
+
+        private void FormAuthorization_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
